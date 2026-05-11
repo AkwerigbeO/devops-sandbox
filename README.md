@@ -1,9 +1,9 @@
-**# DevOps Sandbox Platform**
+# **DevOps Sandbox Platform**
 
 A self-service platform **for** spinning up isolated temporary environments, deploying apps, simulating outages, and monitoring health — all on a single Linux VM.
 
 
-**## Architecture**
+## **Architecture**
 
 **+------------------+
                     |   Control API    |

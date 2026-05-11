@@ -5,42 +5,7 @@ A self-service platform **for** spinning up isolated temporary environments, dep
 
 ## **Architecture**
 
-**+------------------+
-                    |   Control API    |
-                    |  (Flask :8080)   |
-                    +--------+---------+
-                             |
-          +------------------+------------------+
-          |                  |                  |
-+---------+------+  +--------+-------+  +-------+--------+
-| create_env.sh  |  | destroy_env.sh |  | simulate_outage|
-+--------+-------+  +--------+-------+  +-------+--------+
-         |                   |                  |
-+--------+-------------------+------------------+--------+
-|                    Docker Engine                        |
-|  +-------------+  +-------------+  +-------------+     |
-|  | env-app-001 |  | env-app-002 |  | env-app-003 |     |
-|  | (demo-app)  |  | (demo-app)  |  | (demo-app)  |     |
-|  +------+------+  +------+------+  +------+------+     |
-|         |                |                |             |
-|  net-env-001      net-env-002      net-env-003          |
-+--------+-------------------+------------------+--------+
-         |                   |
-+--------+-------------------+--------+
-|           Nginx Proxy (:80)         |
-|     (dynamic per-env routing)       |
-+--------+----------------------------+
-         |
-+--------+-------------------+--------+
-|        Cleanup Daemon               |
-|     (checks TTL every 60s)          |
-+--------+----------------------------+
-         |
-+--------+----------------------------+
-|        Health Poller                |
-|     (polls /health every 30s)       |
-+-------------------------------------+**
-
+![Architecture Diagram](screenshots/Architecture%20diagram%20sandbox.png)
 
 
 ## Prerequisites
@@ -149,4 +114,3 @@ make down
 - Health poller uses polling not push — up to 30s detection lag
 - Log shipping uses Approach A (simple) — no central aggregator
 - stress mode requires stress-ng inside the container
-  EOF

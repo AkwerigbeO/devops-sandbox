@@ -2,11 +2,9 @@
 
 A self-service platform **for** spinning up isolated temporary environments, deploying apps, simulating outages, and monitoring health — all on a single Linux VM.
 
-
 ## **Architecture**
 
 ![Architecture Diagram](screenshots/Architecture%20diagram%20sandbox.png)
-
 
 ## Prerequisites
 
@@ -20,7 +18,7 @@ A self-service platform **for** spinning up isolated temporary environments, dep
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/devops-sandbox.git
+git clone https://github.com/AkwerigbeO/devops-sandbox.git
 cd devops-sandbox
 
 # 2. Build the demo app image
